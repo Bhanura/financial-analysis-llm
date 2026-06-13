@@ -87,3 +87,60 @@ The LLMs shifted the paradigm for building different different NLP models for di
 - **Context windows**: They have limited context windows (though this is improving)
 - **Computational resources**: They require significant computational resources
 
+# The 🤗 Transformers library
+
+## The pipeline() function
+It connects a model with its necessary preprocessing and postprocessing steps, allowing us to directly input any text and get an intelligible answer.
+
+```bash
+from transformers import pipeline
+
+classifier = pipeline("sentiment-analysis")
+classifier("I've been waiting for a HuggingFace course my whole life.")
+```
+```bash
+[{'label': 'POSITIVE', 'score': 0.9598047137260437}]
+```
+
+We can even pass several sentences!
+
+```bash
+classifier(
+    ["I've been waiting for a HuggingFace course my whole life.", "I hate this so much!"]
+)
+```
+```bash
+[{'label': 'POSITIVE', 'score': 0.9598047137260437},
+ {'label': 'NEGATIVE', 'score': 0.9994558095932007}]
+```
+
+By **default**, this pipeline selects a particular pretrained model that has been fine-tuned for **sentiment analysis in English**. The model is downloaded and cached when you create the classifier object. If you rerun the command, the cached model will be used instead and there is no need to download the model again.
+
+There are three main steps involved when you pass some text to a pipeline:
+
+1. The text is preprocessed into a format the model can understand.
+2. The preprocessed inputs are passed to the model.
+3. The predictions of the model are post-processed, so you can make sense of them.
+
+## Available pipelines for different modalities
+
+- Text pipelines
+* text-generation: Generate text from a prompt
+* text-classification: Classify text into predefined categories
+* summarization: Create a shorter version of a text while preserving key information
+* translation: Translate text from one language to another
+* zero-shot-classification: Classify text without prior training on specific labels
+* feature-extraction: Extract vector representations of text
+
+- Image pipelines
+* image-to-text: Generate text descriptions of images
+* image-classification: Identify objects in an image
+* object-detection: Locate and identify objects in images
+
+- Audio pipelines
+* automatic-speech-recognition: Convert speech to text
+* audio-classification: Classify audio into categories
+* text-to-speech: Convert text to spoken audio
+
+- Multimodal pipelines
+* image-text-to-text: Respond to an image based on a text prompt
