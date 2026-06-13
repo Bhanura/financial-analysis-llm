@@ -124,7 +124,7 @@ There are three main steps involved when you pass some text to a pipeline:
 
 ## Available pipelines for different modalities
 
-- Text pipelines
+### Text pipelines
 * text-generation: Generate text from a prompt
 * text-classification: Classify text into predefined categories
 * summarization: Create a shorter version of a text while preserving key information
@@ -132,15 +132,15 @@ There are three main steps involved when you pass some text to a pipeline:
 * zero-shot-classification: Classify text without prior training on specific labels
 * feature-extraction: Extract vector representations of text
 
-- Image pipelines
+### Image pipelines
 * image-to-text: Generate text descriptions of images
 * image-classification: Identify objects in an image
 * object-detection: Locate and identify objects in images
 
-- Audio pipelines
+### Audio pipelines
 * automatic-speech-recognition: Convert speech to text
 * audio-classification: Classify audio into categories
 * text-to-speech: Convert text to spoken audio
 
-- Multimodal pipelines
+### Multimodal pipelines
 * image-text-to-text: Respond to an image based on a text prompt
